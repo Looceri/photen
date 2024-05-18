@@ -21,6 +21,16 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('items', function (Blueprint $table) {
+            $table->string('nome');
+            $table->string('imagem')->nullable();
+            $table->string('tipo_de_documento')->nullable();
+            $table->text('descricao')->nullable();
+            $table->string('local_de_encontrado')->nullable();
+            $table->string('registador');
+            $table->string('contacto');
+        });
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');

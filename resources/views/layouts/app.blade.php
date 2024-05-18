@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Photen</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -22,21 +22,28 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    @if (Route::has('home') && Route::currentRouteName() === 'home')
+                    @if (Route::currentRouteName() !== 'login' && Route::currentRouteName() !== 'register' )
                     <ul class="navbar-nav me-auto">
-                        <li><a class="navbar-brand" href="#">Criar</a></li>
+
+                        @if (Route::has('register_itens') && Route::currentRouteName() !== 'register_itens')
+                        <li><a class="navbar-brand" href="{{ route('register_itens') }}">Criar</a></li>
+                        @endif
+
+                        @if ( Route::currentRouteName() !== 'actualizar')
                         <li><a class="navbar-brand" href="#">Actualizar</a></li>
-                        <li><a class="navbar-brand" href="#">Listar</a></li>
-                        <li><a class="navbar-brand" href="#">Pesquisar</a></li>
+                        @endif
+
+                        @if (Route::has('home') && Route::currentRouteName() !== 'home')
+                        <li><a class="navbar-brand" href="{{ route('home') }}">Listar</a></li>
+                        @endif
+
                     </ul>
                     @endif
 
