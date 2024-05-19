@@ -16,3 +16,5 @@ Route::get('/criar', [App\Http\Controllers\CriarController::class, 'index'])->na
 Route::post('/criar', [App\Http\Controllers\CriarController::class, 'criar'])->name('criar');
 
 Route::get('/actualizar', [App\Http\Controllers\ActualizarController::class, 'index'])->name('actualizar');
+
+Route::post('/actualizar', [App\Http\Controllers\ActualizarController::class, 'actualizar'])->name('actualizar');
