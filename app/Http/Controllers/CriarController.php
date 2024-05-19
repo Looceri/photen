@@ -50,13 +50,13 @@ class CriarController extends Controller
             'tipo_de_documento' => 'required', // Replace with the desired validation rules for the 'tipo_de_documento' field
             'descricao' => 'nullable', // Replace with the desired validation rules for the 'descricao' field
             'local_de_encontrado' => 'required', // Replace with the desired validation rules for the 'local_de_encontrado' field
-            'contacto' => 'required|numerical', // Replace with the desired validation rules for the 'contacto' field
+            'contacto' => 'required|numeric', // Replace with the desired validation rules for the 'contacto' field
         ]);
 
         // Handle image upload and save to storage
         if ($request->hasFile('imagem')) {
             $image = $request->file('imagem');
-            $imagePath = Storage::put('images', $image); // Save the image to the 'images' directory
+            $imagePath = Storage::put('/public/imagem', $image); // Save the image to the 'images' directory
         } else {
             $imagePath = null; // Set the image path to null if no image is provided
         }

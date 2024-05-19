@@ -20,10 +20,10 @@
 
                         @foreach ($itens as $item)
                             <div class="card-body">
-                                <h5 class="card-title">{{ $item->nome }}</h5>
+                                <h3 class="card-title">{{ $item->nome }}</h5>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <img src="{{ URL($item->imagem) }}" alt="{{ $item->nome }}" class="img-thumbnail"
+                                        <img src="storage/{{ substr($item->imagem, 7)}}" alt="Sem imagem" class="img-thumbnail"
                                             style="max-width: 200px; height: auto;">
                                     </div>
                                     <div class="col-md-8">
