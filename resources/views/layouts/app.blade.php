@@ -29,19 +29,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    @if (!(Route::has('login') || Route::has('registar')))
+                    @if (Route::currentRouteName()!='login' || Route::currentRouteName()!='registar')
                     <ul class="navbar-nav me-auto">
 
-                        @if (Route::has('criar') && Route::currentRouteName()!== 'criar')
-                        <li><a class="navbar-brand" href="#">Criar</a></li>
+                        @if (Route::has('criar') && Route::currentRouteName()!= 'criar')
+                        <li><a class="navbar-brand" href="criar">Criar</a></li>
                         @endif
 
                         @if (Route::has('actualizar') && Route::currentRouteName()!== 'actualizar')
-                        <li><a class="navbar-brand" href="#">Actualizar</a></li>
+                        <li><a class="navbar-brand" href="actualizar">Actualizar</a></li>
                         @endif
 
                         @if (Route::has('home') && Route::currentRouteName()!== 'home')
-                        <li><a class="navbar-brand" href="#">Listar</a></li>
+                        <li><a class="navbar-brand" href="home">Listar</a></li>
                         @endif
 
                     </ul>
