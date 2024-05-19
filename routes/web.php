@@ -13,4 +13,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/criar', [App\Http\Controllers\CriarController::class, 'index'])->name('criar');
 
+Route::post('/criar', [App\Http\Controllers\CriarController::class, 'criar'])->name('criar');
+
 Route::get('/actualizar', [App\Http\Controllers\ActualizarController::class, 'index'])->name('actualizar');
