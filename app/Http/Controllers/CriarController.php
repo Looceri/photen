@@ -64,6 +64,6 @@ class CriarController extends Controller
         // Perform any necessary actions after saving the item
 
         // Return any necessary data or view
-        return view('criar', compact('item')); // Replace 'criar' with the desired view name
+        return view('home', compact('item')); // Replace 'criar' with the desired view name
     }
 }
