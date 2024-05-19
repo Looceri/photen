@@ -22,10 +22,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->nome }}</h5>
                                 <p class="card-text">
-                                    <img src="{{ asset($item->imagem) }}" alt="{{ $item->nome }}" class="img-thumbnail"
+                                    <img src="{{ $item->imagem }}" alt="{{ $item->nome }}" class="img-thumbnail"
                                         style="max-width: 200px;">
                                     <br>
-                                    <strong>Tipo de Documento:</strong> {{asset($item->imagem)}}
+                                    <strong>Tipo de Documento:</strong> {{$item->imagem}}
                                     <br>
                                     <strong>Descrição:</strong> {{ $item->descricao }}
                                     <br>
