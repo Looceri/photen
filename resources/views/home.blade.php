@@ -21,32 +21,37 @@
                         @foreach ($itens as $item)
                             <div class="card-body">
                                 <h5 class="card-title">{{ $item->nome }}</h5>
-                                <p class="card-text">
-                                    <img src="{{ $item->imagem }}" alt="{{ $item->nome }}" class="img-thumbnail"
-                                        style="max-width: 200px;">
-                                    <br>
-                                    <strong>Tipo de Documento:</strong> {{$item->imagem}}
-                                    <br>
-                                    <strong>Descrição:</strong> {{ $item->descricao }}
-                                    <br>
-                                    <strong>Local de Encontrado:</strong> {{ $item->local_de_encontrado }}
-                                    <br>
-                                    <strong>Registador:</strong>
-                                    @php
-                                        // Use Laravel's Eloquent ORM to fetch the user associated with the registador ID
-                                        $registador = App\Models\User::find($item->registador);
-                                        echo $registador ? $registador->name : 'N/A';
-                                    @endphp
-                                    <br>
-                                    <strong>Contacto:</strong> {{ $item->contacto }}
-                                    <br>
-                                    <strong>Email:</strong>
-                                    @php
-                                        // Use Laravel's Eloquent ORM to fetch the user associated with the registador ID
-                                    $registador = App\Models\User::find($item->registador);
-                                    echo $registador ? $registador->email : 'N/A';
-                                    @endphp
-                                </p>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img src="{{ URL($item->imagem) }}" alt="{{ $item->nome }}" class="img-thumbnail"
+                                            style="max-width: 200px; height: auto;">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <p class="card-text">
+                                            <strong>Tipo de Documento:</strong>{{ $item->tipo_de_documento }}
+                                            <br>
+                                            <strong>Descrição:</strong> {{ $item->descricao }}
+                                            <br>
+                                            <strong>Local de Encontrado:</strong> {{ $item->local_de_encontrado }}
+                                            <br>
+                                            <strong>Registador:</strong>
+                                            @php
+                                                // Use Laravel's Eloquent ORM to fetch the user associated with the registador ID
+                                                $registador = App\Models\User::find($item->registador);
+                                                echo $registador ? $registador->name : 'N/A';
+                                            @endphp
+                                            <br>
+                                            <strong>Contacto:</strong> {{ $item->contacto }}
+                                            <br>
+                                            <strong>Email:</strong>
+                                            @php
+                                                // Use Laravel's Eloquent ORM to fetch the user associated with the registador ID
+                                                $registador = App\Models\User::find($item->registador);
+                                                echo $registador ? $registador->email : 'N/A';
+                                            @endphp
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>

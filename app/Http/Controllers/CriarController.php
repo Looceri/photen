@@ -50,7 +50,7 @@ class CriarController extends Controller
             'tipo_de_documento' => 'required', // Replace with the desired validation rules for the 'tipo_de_documento' field
             'descricao' => 'nullable', // Replace with the desired validation rules for the 'descricao' field
             'local_de_encontrado' => 'required', // Replace with the desired validation rules for the 'local_de_encontrado' field
-            'contacto' => 'required', // Replace with the desired validation rules for the 'contacto' field
+            'contacto' => 'required|numerical', // Replace with the desired validation rules for the 'contacto' field
         ]);
 
         // Handle image upload and save to storage

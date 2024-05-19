@@ -10,14 +10,18 @@
 
                         <div class="card-body">
                             <!-- Existing form code -->
-
+                            @php
+                                $user = Auth::user();
+                                // Use Laravel's Eloquent ORM to fetch items from the database
+                                $itens = App\Models\Item::where('id', $user.id)->get();
+                            @endphp
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="items">Itens criados pelo usuário:</label>
                                     <select id="items" class="form-control">
                                         <!-- Populate the select options with user-created items -->
                                         @foreach ($itens as $item)
-                                            <option value="{{ $item->id }}" id="itens">{{ $item->nome }}</option>
+                                            <option value="../{{ $item->id }}" id="itens">{{ $item->nome }}</option>
                                         @endforeach
                                     </select>
                                 </div>
