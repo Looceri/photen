@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Create Item') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('criar') }}">
+                        <form method="POST" action="{{ route('criar') }}"enctype = "multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -32,9 +32,12 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Imagem') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="imagem" type="file"
-                                        class="form-control @error('imagem') is-invalid @enderror" name="imagem"
-                                        value="{{ old('imagem') }}">
+                                    @if (old('imagem'))
+                                        <img src="{{ old('imagem') }}" alt="Uploaded Image" style="max-width: 100%;">
+                                    @endif
+
+                                    <input id="imagem" type="file" accept="image/*" max="5000000"
+                                        class="form-control @error('imagem') is-invalid @enderror" name="imagem">
 
                                     @error('imagem')
                                         <span class="invalid-feedback" role="alert">
@@ -45,10 +48,13 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="tipo_de_documento" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de Documento') }}</label>
+                                <label for="tipo_de_documento"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('Tipo de Documento') }}</label>
 
                                 <div class="col-md-6">
-                                    <select id="tipo_de_documento" class="form-control @error('tipo_de_documento') is-invalid @enderror" name="tipo_de_documento">
+                                    <select id="tipo_de_documento"
+                                        class="form-control @error('tipo_de_documento') is-invalid @enderror"
+                                        name="tipo_de_documento">
                                         <option value="">Selecione um tipo de documento</option>
                                         <option value="BI">Bilhete de Identidade</option>
                                         <option value="Passaporte">Passaporte</option>
@@ -57,9 +63,9 @@
                                     </select>
 
                                     @error('tipo_de_documento')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
                                     @enderror
                                 </div>
                             </div>

@@ -16,7 +16,13 @@ class Item extends Model
         'descricao',
         'local_de_encontrado',
         'registador',
-        'contacto',
+        'status', // Add the 'tatus' attribute to the fillable array
     ];
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->status = true; // Set the default value for the 'tatus' attribute
+    }
 
 }
